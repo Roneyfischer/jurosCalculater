@@ -1,0 +1,19 @@
+{
+  "name": "outro",
+  "version": "1.0.0",
+  "description": "Creiei esta estrutura pra ter um ponto de partida no desenvolvimento a partir do express",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20",
+    "typescript": "^4.9.3"
+  }
+}
