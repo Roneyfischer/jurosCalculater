@@ -81,23 +81,15 @@ const dbMethod = {
 
   read: async (table, nameItenToSearch, valueItenToSearch, itenToReturn) => {
     console.log("> [dbMethod.read]  open");
-    console.log(
-      "table, nameItenToSearch, valueItenToSearch, itenToReturn: >>>> " + table,
-      nameItenToSearch,
-      valueItenToSearch,
-      itenToReturn
-    );
+
     let numberOfColumns = "$1";
     for (let i = 1; i < valueItenToSearch.length; i++) {
       numberOfColumns = numberOfColumns + `$${i + 1}`;
     }
-    console.log(
-      "???????????????????????????????????????????????????????" +
-        nameItenToSearch
-    );
+
     const queryText = `SELECT "${itenToReturn}" from "${table}" WHERE ("${nameItenToSearch}") = (${numberOfColumns}) `;
     const queryValues = valueItenToSearch;
-    console.log(queryText);
+
     const client = await dbConnect();
 
     return await client.query(queryText, queryValues).then((res) => {

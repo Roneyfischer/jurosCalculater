@@ -41,7 +41,14 @@ export class ViewIntesrestComponent {
     installmentsNumber: 0,
   };
 
+  teste = (abc: IreturnInterestView) => {
+    this.payValue = abc;
+  };
+
   getInstallmentPayment() {
-    this.interestViewService.getInterestView(this.dataToGetInterest);
+    this.interestViewService.getInterestView(
+      this.dataToGetInterest,
+      this.teste
+    );
   }
 }

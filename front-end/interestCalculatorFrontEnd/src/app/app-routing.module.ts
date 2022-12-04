@@ -4,6 +4,7 @@ import { ViewIntesrestComponent } from './components/view-intesrest/view-intesre
 
 const routes: Routes = [
   { path: 'viewInterest', component: ViewIntesrestComponent },
+  { path: '', component: ViewIntesrestComponent },
 ];
 
 @NgModule({

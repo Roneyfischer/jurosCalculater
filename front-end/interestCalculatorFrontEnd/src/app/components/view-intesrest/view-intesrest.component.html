@@ -1,7 +1,10 @@
-<p></p>
-<div class="container-fluid">
+<div class="container-fluid justify-content-between">
+  <h2 class="text-align-center">Calculadora de pagamento:</h2>
+  <p></p>
   <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">R$</span>
+    <span class="input-group-text" id="basic-addon1"
+      >Valor do produto (R$)</span
+    >
     <input
       type="text"
       class="form-control"
@@ -14,7 +17,9 @@
   </div>
 
   <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">R$</span>
+    <span class="input-group-text" id="basic-addon1"
+      >Valor de entrada (R$)
+    </span>
     <input
       type="text"
       class="form-control"
@@ -27,11 +32,10 @@
   </div>
 
   <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">X</span>
+    <span class="input-group-text" id="basic-addon1">Numero de parcelas</span>
     <input
       type="number"
       class="form-control"
-      step="0.01"
       placeholder="Numero de parcelas"
       aria-label="installmentNumber"
       [(ngModel)]="dataToGetInterest.installmentsNumber"
@@ -39,8 +43,11 @@
     />
   </div>
 
-  <button class="btn btn-primary" (click)="getInstallmentPayment()">
-    Caclular
+  <button
+    class="btn btn-primary item-align-center"
+    (click)="getInstallmentPayment()"
+  >
+    Calcular
   </button>
 </div>
 

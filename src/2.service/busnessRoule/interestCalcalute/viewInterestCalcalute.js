@@ -80,7 +80,7 @@ const routerPriceCalculator = {
 
     for (let i = 1; i <= installmentsNumber; i++) {
       finalPrice.push({
-        InstallmentsValue: +(
+        installmentsValue: +(
           (valueToPay * 100) /
           (100 - (transactionPercentage + monthPercentage * (i - 1))) /
           i
@@ -89,6 +89,7 @@ const routerPriceCalculator = {
           (valueToPay * 100) /
           (100 - (transactionPercentage + monthPercentage * (i - 1)))
         ).toFixed(2),
+        installmentNumber: +i,
       });
     }
 

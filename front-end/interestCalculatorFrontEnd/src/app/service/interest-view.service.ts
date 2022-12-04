@@ -9,7 +9,7 @@ import { IreturnInterestView } from '../interfaces/return-interest-view';
 export class InterestViewService {
   constructor(private http: HttpClient) {}
 
-  getInterestView(reqData: any) {
+  getInterestView(reqData: any, teste: any) {
     console.log('> [view service]. Data abaixo:');
     console.log(reqData);
 
@@ -17,8 +17,9 @@ export class InterestViewService {
       .post(`http://127.0.0.1:3333/interestCalculate`, reqData)
       .subscribe((resData: any) => {
         const retunInterestView: IreturnInterestView = resData;
+        teste(retunInterestView);
         console.log('> [InterestViewService.subscribe]. Data:');
-        console.log(retunInterestView);
+        console.log(resData);
         return retunInterestView;
       });
   }

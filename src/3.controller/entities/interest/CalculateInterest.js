@@ -2,6 +2,7 @@ import routerPriceCalculator from "../../../2.service/busnessRoule/interestCalca
 
 const priceCalculator = async (reqBody) => {
   const { totalValue, downPaymentOn, installmentsNumber } = reqBody;
+  console.log("Requisicao: " + totalValue, downPaymentOn, installmentsNumber);
 
   const priceInCash = await routerPriceCalculator.calculatePriceInCash(
     totalValue
