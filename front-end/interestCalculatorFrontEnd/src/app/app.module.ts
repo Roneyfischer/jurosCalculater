@@ -7,10 +7,11 @@ import { ViewIntesrestComponent } from './components/view-intesrest/view-intesre
 import { DrashBoardComponent } from './components/drash-board/drash-board.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, ViewIntesrestComponent, DrashBoardComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [HttpClientModule],
   bootstrap: [AppComponent],
 })

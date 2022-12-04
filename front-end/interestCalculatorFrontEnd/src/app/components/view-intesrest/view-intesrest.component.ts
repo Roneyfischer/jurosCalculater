@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { InterestViewService } from 'src/app/service/interest-view.service';
-
-import { IreturnInterestView } from 'src/app/interfaces/return-interest-view';
+import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
+import {
+  IdataToGetInterest,
+  IreturnInterestView,
+} from 'src/app/interfaces/return-interest-view';
 
 @Component({
   selector: 'app-view-intesrest',
@@ -31,13 +35,13 @@ export class ViewIntesrestComponent {
     ],
   };
 
-  dataToGetInterest = {
-    totalValue: this.totalValue,
-    downPaymentOn: this.downPaymentOn,
-    installmentsNumber: 18,
+  dataToGetInterest: IdataToGetInterest = {
+    totalValue: 0,
+    downPaymentOn: 0,
+    installmentsNumber: 0,
   };
 
   getInstallmentPayment() {
-    return this.interestViewService.getInterestView(this.dataToGetInterest);
+    this.interestViewService.getInterestView(this.dataToGetInterest);
   }
 }

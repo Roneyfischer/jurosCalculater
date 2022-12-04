@@ -10,3 +10,9 @@ export interface IpriceInCredit {
   installmentNumber: number;
   totalValue: number;
 }
+
+export interface IdataToGetInterest {
+  totalValue: number;
+  downPaymentOn: number;
+  installmentsNumber: number;
+}

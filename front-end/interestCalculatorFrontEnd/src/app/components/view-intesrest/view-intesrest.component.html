@@ -8,6 +8,8 @@
       placeholder="Valor da compra"
       aria-label="totalValue"
       aria-describedby="basic-addon1"
+      [(ngModel)]="dataToGetInterest.totalValue"
+      s
     />
   </div>
 
@@ -18,7 +20,21 @@
       class="form-control"
       step="0.01"
       placeholder="Valor da entrada"
-      aria-label="totalValue"
+      aria-label="downPaymentOn"
+      [(ngModel)]="dataToGetInterest.downPaymentOn"
+      aria-describedby="basic-addon1"
+    />
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">X</span>
+    <input
+      type="number"
+      class="form-control"
+      step="0.01"
+      placeholder="Numero de parcelas"
+      aria-label="installmentNumber"
+      [(ngModel)]="dataToGetInterest.installmentsNumber"
       aria-describedby="basic-addon1"
     />
   </div>
