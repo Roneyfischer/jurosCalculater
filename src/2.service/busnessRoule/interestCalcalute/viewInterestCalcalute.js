@@ -1,65 +1,98 @@
 import dbMethod from "../../../1.model/DAL/dbMethod.js";
 
-const routerPriceCalculator =  {
-  calculatePriceInCasch: async (totalValue) => {
-    const table = `discountRate`;
-    const dataToFind = `casch`;
-    const dataToReturn = `discountPercentage`;
+const routerPriceCalculator = {
+  calculatePriceInCash: async (totalValue) => {
+    const table = "paymentrate";
+    const dataToFindName = "transactionType";
+    const dataToFindValue = ["cash"];
+    const dataToReturn = "transactionPercentage";
 
-    const discountPercentage = await dbMethod.read(table, dataToFind, dataToReturn);
+    const discountPercentage = +(
+      await dbMethod.read(table, dataToFindName, dataToFindValue, dataToReturn)
+    ).dataFinded[0].transactionPercentage;
 
-    const finalPrice = totalValue * ((100 - discountPercentage) / 100);
+    const finalPrice = +(
+      totalValue *
+      ((100 + discountPercentage) / 100)
+    ).toFixed(2);
+
     return finalPrice;
   },
 
-  calculatePriceInPix :async (totalValue) => {
+  calculatePriceInPix: async (totalValue) => {
+    const table = `paymentrate`;
     const dataToFindName = `transactionType`;
-    const dataToFindValue = `pix`;
-    const dataToReturn = `discountPercentage`;
+    const dataToFindValue = [`pix`];
+    const dataToReturn = `transactionPercentage`;
 
-    const discountPercentage = await dbMethod.read(table, dataToFindName, dataToFindValue, dataToReturn);
+    const discountPercentage = +(
+      await dbMethod.read(table, dataToFindName, dataToFindValue, dataToReturn)
+    ).dataFinded[0].transactionPercentage;
 
-    const finalPrice = totalValue * ((100 - discountPercentage) / 100);
+    const finalPrice = +(
+      totalValue *
+      ((100 + discountPercentage) / 100)
+    ).toFixed(2);
     return finalPrice;
   },
 
-  calculatePriceInDebit :async (totalValue) => {
-    const table = `discountRate`;
+  calculatePriceInDebit: async (totalValue) => {
+    const table = `paymentrate`;
     const dataToFindName = `transactionType`;
-    const dataToFindValue = `debit`;
-    const dataToReturn = `discountPercentage`;
+    const dataToFindValue = [`debit`];
+    const dataToReturn = `transactionPercentage`;
 
-    const discountPercentage = await dbMethod.read(table, dataToFindName, dataToFindValue, dataToReturn);
+    const discountPercentage = +(
+      await dbMethod.read(table, dataToFindName, dataToFindValue, dataToReturn)
+    ).dataFinded[0].transactionPercentage;
 
-    const finalPrice = totalValue * ((100 - discountPercentage) / 100);
+    const finalPrice = totalValue * ((100 + discountPercentage) / 100);
     return finalPrice;
   },
 
-  calculatePriceInCredit : async (totalValue, downPaymentOn, installmentsNumber) => {
-    const table = `rateInterest`;
-    const dataToFindName = `interestType`;
+  calculatePriceInCredit: async (
+    totalValue,
+    downPaymentOn,
+    installmentsNumber
+  ) => {
+    const table = `paymentrate`;
+    const dataToFindName = `transactionType`;
     const dataToReturn = `percentage`;
 
-    const initialInterest = await dbMethod.read(table, dataToFindName, `initialInterest`, dataToReturn);
-    const monthInterest = await dbMethod.read(table, dataToFindName, `monthInterest`, dataToReturn);
+    const transactionPercentage = +(
+      await dbMethod.read(
+        table,
+        dataToFindName,
+        [`credit`],
+        `transactionPercentage`
+      )
+    ).dataFinded[0].transactionPercentage;
+
+    const monthPercentage = +(
+      await dbMethod.read(table, dataToFindName, [`credit`], `monthPercentage`)
+    ).dataFinded[0].monthPercentage;
 
     const valueToPay = totalValue - downPaymentOn;
 
+    console.log(transactionPercentage, monthPercentage);
+
     let finalPrice = [];
-    console.log(valueToPay * 100);
-    console.log(transactionInterest + monthInterest * 5);
 
     for (let i = 1; i <= installmentsNumber; i++) {
       finalPrice.push({
-        InstallmentsValue: (valueToPay * 100) / (100 - (transactionInterest + monthInterest * (i - 1))) / i,
-        totalValue: (valueToPay * 100) / (100 - (transactionInterest + monthInterest * i)),
+        InstallmentsValue: +(
+          (valueToPay * 100) /
+          (100 - (transactionPercentage + monthPercentage * (i - 1))) /
+          i
+        ).toFixed(2),
+        totalValue: +(
+          (valueToPay * 100) /
+          (100 - (transactionPercentage + monthPercentage * (i - 1)))
+        ).toFixed(2),
       });
     }
 
     return finalPrice;
   },
 };
-
-console.log(routerPriceCalculator.calculatePriceInCredit);
-
 export default routerPriceCalculator;
