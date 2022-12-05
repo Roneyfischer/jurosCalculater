@@ -6,6 +6,7 @@ import pg from "pg";
 const dbMethod = {
   add: async (table, fieldName, fieldValue) => {
     try {
+      console.log("> [dbMethod.add]");
       const fieldsNumber = fieldName.split(/,/).length;
 
       let fieldsNumberVariables = [];

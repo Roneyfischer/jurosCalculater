@@ -7,6 +7,12 @@ create table paymentRate(
 "monthPercentage" decimal
 );
 
+create table users(
+"id" serial unique,
+"username" varchar(32) not null primary key,
+"password" varchar(856) not null unique,
+);
+
 INSERT INTO "paymentrate"("transactionType", "transactionPercentage", "monthPercentage") VALUES('cash', -10, 0);
 INSERT INTO "paymentrate"("transactionType", "transactionPercentage", "monthPercentage") VALUES('pix', -15, 0);
 INSERT INTO "paymentrate"("transactionType", "transactionPercentage", "monthPercentage") VALUES('debit', -5, 0);

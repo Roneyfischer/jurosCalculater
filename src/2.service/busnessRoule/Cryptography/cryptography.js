@@ -1,3 +1,5 @@
+import argon2, { hash } from "argon2";
+
 const cryptoArgon2 = {
   encrypt: async function (data) {
     const hash = await argon2.hash(data, {
