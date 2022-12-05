@@ -1,20 +1,31 @@
-<div class="container-fluid justify-content-between">
-  <inout
+<div
+  class="container-fluid justify-content-between block-login-register align-middle rounded mx-auto d-block"
+>
+  <img
+    src="../../../assets/logos/your-logo.png"
+    alt="your-system"
+    class="mx-auto d-block logoImg"
+  />
+  <h3 class="text-align-center">Painel do Administrador</h3>
+  <input
+    class="input"
     type="text"
     class="form-control"
     placeholder="username"
     aria-label="username"
     aria-describedby="username"
-    [(ngModel)]="user"
+    [(ngModel)]="userLoginData.username"
     s
-  ></inout>
+  />
   <input
     type="password"
     class="form-control"
     aria-label="password"
     aria-describedby="user password"
-    [(ngModel)]="password"
+    [(ngModel)]="userLoginData.password"
     s
   />
-  <button class="btn btn-primary" (click)="userLogin()">Entrar</button>
+  <button class="btn btn-primary container-fluid" (click)="userLogin()">
+    Entrar
+  </button>
 </div>

@@ -3,18 +3,22 @@ import verifys from "../verifys/verifys.js";
 import dbMethod from "../../../1.model/DAL/dbMethod.js";
 
 const userLoginService = async (reqBody, res) => {
-  const username = reqBody.username;
-  const password = reqBody.password;
-  const table = "users";
-  const dataToFindName = "username";
-  const dataToFindValue = [username];
-  const dataToReturn = "password";
+  try {
+    const username = reqBody.username;
+    const password = reqBody.password;
+    const table = "users";
+    const dataToFindName = "username";
+    const dataToFindValue = [username];
+    const dataToReturn = "password";
 
-  const longHash = (
-    await dbMethod.read(table, dataToFindName, dataToFindValue, dataToReturn)
-  ).dataFinded[0].password;
+    const longHash = (
+      await dbMethod.read(table, dataToFindName, dataToFindValue, dataToReturn)
+    ).dataFinded[0].password;
 
-  return cryptoArgon2.verify(password, longHash);
+    return cryptoArgon2.verify(password, longHash);
+  } catch (error) {
+    return res.status(401).json({ message: "User not found" });
+  }
 };
 
 const userRegisterService = async (reqBody, res) => {
