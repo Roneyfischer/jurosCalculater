@@ -1,9 +1,7 @@
-import User from "../../../2.service/busnessRoule/User/User.js";
-const req = {
-  userName: "user",
-  password: "pass",
+import userLoginService from "../../../2.service/busnessRoule/User/User.js";
+
+const userLoginController = async (reqBody, res) => {
+  return userLoginService(reqBody, res);
 };
 
-const res = { res: "teste res" };
-
-User.userLogin(req, res);
+export default userLoginController;
