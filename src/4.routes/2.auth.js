@@ -6,7 +6,7 @@ import userController from "../3.controller/entities/user/User.js";
 const auth = express.Router();
 
 auth.post("/", async (req, res) => {
-  console.log("> [route.interestCalculateRoute]");
+  console.log("> [route.auth]");
 
   userController[req.body.type](req.body, res);
 });

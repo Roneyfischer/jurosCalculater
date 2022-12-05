@@ -44,10 +44,12 @@ export class ViewIntesrestComponent {
   teste = (abc: IreturnInterestView) => {
     this.payValue = abc;
   };
+  URL = `interestCalculate`;
 
   getInstallmentPayment() {
-    this.interestViewService.getInterestView(
+    this.interestViewService.postHttp(
       this.dataToGetInterest,
+      this.URL,
       this.teste
     );
   }

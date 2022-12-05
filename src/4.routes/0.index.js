@@ -1,5 +1,5 @@
 import express from "express";
-import interestCalculateRoute from "./2.auth.js";
+import interestCalculateRoute from "./1.interestCalculateRoute copy.js";
 import auth from "./2.auth.js";
 import loggedArea from "./3.loggedArea.js";
 

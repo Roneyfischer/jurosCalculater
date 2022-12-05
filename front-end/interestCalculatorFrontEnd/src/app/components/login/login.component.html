@@ -1,0 +1,20 @@
+<div class="container-fluid justify-content-between">
+  <inout
+    type="text"
+    class="form-control"
+    placeholder="username"
+    aria-label="username"
+    aria-describedby="username"
+    [(ngModel)]="user"
+    s
+  ></inout>
+  <input
+    type="password"
+    class="form-control"
+    aria-label="password"
+    aria-describedby="user password"
+    [(ngModel)]="password"
+    s
+  />
+  <button class="btn btn-primary" (click)="userLogin()">Entrar</button>
+</div>
