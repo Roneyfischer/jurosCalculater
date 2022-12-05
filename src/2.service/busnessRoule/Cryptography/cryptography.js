@@ -10,8 +10,6 @@ const cryptoArgon2 = {
       // threads: 4,
     });
 
-    return hash;
-
     throw { status: false, message: error.message };
   },
 

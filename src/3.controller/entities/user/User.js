@@ -3,12 +3,12 @@ import setCookie from "../../../2.service/busnessRoule/User/token-cookie/token-c
 import interestService from "../../../2.service/busnessRoule/interest/interest.js";
 const userController = {
   userLogin: async (reqBody, res) => {
-    const loginResult = userService.userLoginService(reqBody, res);
-    if (loginResult) {
+    const loginResult = await userService.userLoginService(reqBody, res);
+    if (loginResult.status) {
       return setCookie(reqBody, res);
     }
 
-    return loginResult;
+    return res.status(401).json(loginResult);
   },
 
   userRegister: async (reqBody, res) => {
