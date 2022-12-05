@@ -8,9 +8,7 @@ const auth = express.Router();
 auth.post("/", async (req, res) => {
   console.log("> [route.interestCalculateRoute]");
 
-  return res
-    .status(200)
-    .json(await userController[req.body.type](req.body, res));
+  userController[req.body.type](req.body, res);
 });
 
 export default auth;

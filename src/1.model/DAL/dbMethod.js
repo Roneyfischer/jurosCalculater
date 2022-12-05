@@ -39,9 +39,10 @@ const dbMethod = {
     nameItenToUpdate,
     valueItenToUpdate
   ) => {
-    const queryText = `UPDATE "${table}" SET "${nameItenToUpdate}" = ($1)  WHERE "${nameItenToSearch}" = ${valueItenToSearch}`;
+    const queryText = `UPDATE "${table}" SET "${nameItenToUpdate}" = ($1)  WHERE "${nameItenToSearch}" = '${valueItenToSearch}'`;
     const queryValues = valueItenToUpdate;
-
+    console.log(queryText);
+    console.log(queryValues);
     const client = await dbConnect();
 
     await client.query(queryText, queryValues);

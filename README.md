@@ -17,3 +17,29 @@ INSERT INTO "paymentrate"("transactionType", "transactionPercentage", "monthPerc
 INSERT INTO "paymentrate"("transactionType", "transactionPercentage", "monthPercentage") VALUES('pix', -15, 0);
 INSERT INTO "paymentrate"("transactionType", "transactionPercentage", "monthPercentage") VALUES('debit', -5, 0);
 INSERT INTO "paymentrate"("transactionType", "transactionPercentage", "monthPercentage") VALUES('credit', 0, 1);
+
+---
+
+Requisitions:
+{
+"type" : "userRegister",
+"username": "20",
+"password": "5"
+}
+
+===================
+{
+"type" : "userLogin",
+"username": "20",
+"password": "5"
+}
+
+========
+
+{
+"totalValue" : 2000,
+"downPaymentOn": 250,
+"installmentsNumber": 5
+}
+
+===========
