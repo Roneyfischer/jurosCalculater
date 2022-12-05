@@ -14,27 +14,9 @@ import {
 })
 export class ViewIntesrestComponent {
   constructor(private interestViewService: InterestViewService) {}
-  priceOnDebit = 112;
-  priceOnCash = 110;
-  priceOnPix = 100;
-
-  totalValue!: number;
-  downPaymentOn!: number;
-  installmentsNumber!: number;
 
   payValue!: IreturnInterestView;
-  // = {
-  //   priceInCash: 0,
-  //   priceInDebit: 0,
-  //   priceInPix: 0,
-  //   priceInCredit: [
-  //     {
-  //       installmentsValue: 0,
-  //       installmentNumber: 0,
-  //       totalValue: 0,
-  //     },
-  //   ],
-  // };
+  hidePayValues!: boolean;
 
   dataToGetInterest: IdataToGetInterest = {
     totalValue: 0,
@@ -44,6 +26,7 @@ export class ViewIntesrestComponent {
 
   payValueSet = (abc: IreturnInterestView): void => {
     this.payValue = abc;
+    this.hidePayValues = true;
   };
 
   URL = `interestCalculate`;
