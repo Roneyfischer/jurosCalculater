@@ -63,35 +63,35 @@
       </li>
     </ul>
   </div>
-  <div class="container-fluid" id="payValues">
-    <div class="container-fluid" id="priceOnCash">
-      <ul class="list-group">
-        <li
-          class="list-group-item d-flex justify-content-between align-items-start"
-        >
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">R$ {{ payValue.priceInCash }}</div>
-          </div>
-          <span class="badge bg-primary rounded-pill">Dinheiro</span>
-          <br />
-        </li>
-      </ul>
-    </div>
 
-    <div class="container-fluid" id="priceOnPix">
-      <ul class="list-group">
-        <li
-          class="list-group-item d-flex justify-content-between align-items-start"
-        >
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">R$ {{ payValue.priceInPix }}</div>
-          </div>
-          <span class="badge bg-primary rounded-pill">PIX</span>
-          <br />
-        </li>
-      </ul>
-    </div>
+  <div class="container-fluid" id="priceOnCash">
+    <ul class="list-group">
+      <li
+        class="list-group-item d-flex justify-content-between align-items-start"
+      >
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">R$ {{ payValue.priceInCash }}</div>
+        </div>
+        <span class="badge bg-primary rounded-pill">Dinheiro</span>
+        <br />
+      </li>
+    </ul>
   </div>
+
+  <div class="container-fluid" id="priceOnPix">
+    <ul class="list-group">
+      <li
+        class="list-group-item d-flex justify-content-between align-items-start"
+      >
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">R$ {{ payValue.priceInPix }}</div>
+        </div>
+        <span class="badge bg-primary rounded-pill">PIX</span>
+        <br />
+      </li>
+    </ul>
+  </div>
+
   <p></p>
 
   <div class="container-fluid" id="installmentPayment">
