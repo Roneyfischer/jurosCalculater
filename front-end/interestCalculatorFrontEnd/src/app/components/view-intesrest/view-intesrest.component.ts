@@ -22,18 +22,19 @@ export class ViewIntesrestComponent {
   downPaymentOn!: number;
   installmentsNumber!: number;
 
-  payValue: IreturnInterestView = {
-    priceInCash: 10,
-    priceInDebit: 10,
-    priceInPix: 10,
-    priceInCredit: [
-      {
-        installmentsValue: 10,
-        installmentNumber: 10,
-        totalValue: 10,
-      },
-    ],
-  };
+  payValue!: IreturnInterestView;
+  // = {
+  //   priceInCash: 0,
+  //   priceInDebit: 0,
+  //   priceInPix: 0,
+  //   priceInCredit: [
+  //     {
+  //       installmentsValue: 0,
+  //       installmentNumber: 0,
+  //       totalValue: 0,
+  //     },
+  //   ],
+  // };
 
   dataToGetInterest: IdataToGetInterest = {
     totalValue: 0,
@@ -41,16 +42,17 @@ export class ViewIntesrestComponent {
     installmentsNumber: 0,
   };
 
-  teste = (abc: IreturnInterestView) => {
+  payValueSet = (abc: IreturnInterestView): void => {
     this.payValue = abc;
   };
+
   URL = `interestCalculate`;
 
-  getInstallmentPayment() {
+  getPayValues() {
     this.interestViewService.postHttp(
       this.dataToGetInterest,
       this.URL,
-      this.teste
+      this.payValueSet
     );
   }
 }

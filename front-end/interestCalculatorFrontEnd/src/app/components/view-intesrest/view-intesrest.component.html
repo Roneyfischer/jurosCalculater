@@ -43,10 +43,7 @@
     />
   </div>
 
-  <button
-    class="btn btn-primary item-align-center"
-    (click)="getInstallmentPayment()"
-  >
+  <button class="btn btn-primary item-align-center" (click)="getPayValues()">
     Calcular
   </button>
 </div>
@@ -66,52 +63,53 @@
       </li>
     </ul>
   </div>
+  <div class="container-fluid" id="payValues">
+    <div class="container-fluid" id="priceOnCash">
+      <ul class="list-group">
+        <li
+          class="list-group-item d-flex justify-content-between align-items-start"
+        >
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">R$ {{ payValue.priceInCash }}</div>
+          </div>
+          <span class="badge bg-primary rounded-pill">Dinheiro</span>
+          <br />
+        </li>
+      </ul>
+    </div>
 
-  <div class="container-fluid" id="priceOnCash">
+    <div class="container-fluid" id="priceOnPix">
+      <ul class="list-group">
+        <li
+          class="list-group-item d-flex justify-content-between align-items-start"
+        >
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">R$ {{ payValue.priceInPix }}</div>
+          </div>
+          <span class="badge bg-primary rounded-pill">PIX</span>
+          <br />
+        </li>
+      </ul>
+    </div>
+  </div>
+  <p></p>
+
+  <div class="container-fluid" id="installmentPayment">
+    <p>Pagamento a prazo:</p>
     <ul class="list-group">
       <li
         class="list-group-item d-flex justify-content-between align-items-start"
+        *ngFor="let installment of payValue.priceInCredit"
       >
         <div class="ms-2 me-auto">
-          <div class="fw-bold">R$ {{ payValue.priceInCash }}</div>
+          <div class="fw-bold">R$ {{ installment.installmentsValue }}</div>
+          Valor total: R$ {{ installment.totalValue }}
         </div>
-        <span class="badge bg-primary rounded-pill">Dinheiro</span>
+        <span class="badge bg-primary rounded-pill"
+          >{{ installment.installmentNumber }}x</span
+        >
         <br />
       </li>
     </ul>
   </div>
-
-  <div class="container-fluid" id="priceOnPix">
-    <ul class="list-group">
-      <li
-        class="list-group-item d-flex justify-content-between align-items-start"
-      >
-        <div class="ms-2 me-auto">
-          <div class="fw-bold">R$ {{ payValue.priceInPix }}</div>
-        </div>
-        <span class="badge bg-primary rounded-pill">PIX</span>
-        <br />
-      </li>
-    </ul>
-  </div>
-</div>
-<p></p>
-
-<div class="container-fluid" id="installmentPayment">
-  <p>Pagamento a prazo:</p>
-  <ul class="list-group">
-    <li
-      class="list-group-item d-flex justify-content-between align-items-start"
-      *ngFor="let installment of payValue.priceInCredit"
-    >
-      <div class="ms-2 me-auto">
-        <div class="fw-bold">R$ {{ installment.installmentsValue }}</div>
-        Valor total: R$ {{ installment.totalValue }}
-      </div>
-      <span class="badge bg-primary rounded-pill"
-        >{{ installment.installmentNumber }}x</span
-      >
-      <br />
-    </li>
-  </ul>
 </div>
