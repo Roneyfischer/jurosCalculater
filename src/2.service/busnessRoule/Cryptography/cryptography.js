@@ -9,8 +9,7 @@ const cryptoArgon2 = {
       // memoryCost: 2000000, // em kilobits3000000
       // threads: 4,
     });
-
-    throw { status: false, message: error.message };
+    return hash;
   },
 
   verify: async function (pass, longHash) {
@@ -19,7 +18,7 @@ const cryptoArgon2 = {
       return { status: true, message: "Password match" };
     }
 
-    throw { status: false, message: "Password did not match" };
+    return { status: false, message: "Password did not match" };
   },
 };
 

@@ -12,7 +12,12 @@ const userController = {
   },
 
   userRegister: async (reqBody, res) => {
-    return userService.userRegisterService(reqBody, res);
+    const addUserOndDb = await userService.userRegisterService(reqBody, res);
+
+    if (!addUserOndDb) {
+      res.status(401).json(addUserOndDb);
+    }
+    res.status(200).json(addUserOndDb);
   },
 
   interestSetTransactionRate: async (reqBody) => {

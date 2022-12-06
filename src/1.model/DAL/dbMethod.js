@@ -65,7 +65,7 @@ const dbMethod = {
     );
 
     if (!checkLineExists.status) {
-      throw { status: false, message: `Value to delete not exists` };
+      return { status: false, message: `Value to delete not exists` };
     }
 
     const queryText = `DELETE FROM "${table}" WHERE ${nameItenToDeleteLine} IN ($1)`;

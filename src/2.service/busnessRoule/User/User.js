@@ -41,8 +41,8 @@ const userRegisterService = async (reqBody, res) => {
   const fieldName = `"username", "password"`;
   const fieldValue = [username, passEncrypted];
 
-  const teste = await dbMethod.add(table, fieldName, fieldValue);
-  return { status: teste.status, message: teste.message };
+  const addUserOndDb = await dbMethod.add(table, fieldName, fieldValue);
+  return { status: addUserOndDb.status, message: addUserOndDb.message };
 };
 
 export default { userLoginService, userRegisterService };
