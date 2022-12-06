@@ -21,7 +21,7 @@ const interestService = {
     );
   },
   rateSetMonth: async (reqBody) => {
-    console.log("> [interestService]");
+    console.log("> [interestService.rateSetMonth]");
 
     const { itenToSearch, itenToUpdate } = await reqBody;
 
@@ -31,13 +31,15 @@ const interestService = {
     const nameItenToUpdate = "monthPercentage";
     const valueItenToUpdate = [reqBody.newPercentage];
 
-    return dbMethod.update(
+    const teste = dbMethod.update(
       table,
       nameItenToSearch,
       valueItenToSearch,
       nameItenToUpdate,
       valueItenToUpdate
     );
+    console.log(teste);
+    return teste;
   },
 };
 
