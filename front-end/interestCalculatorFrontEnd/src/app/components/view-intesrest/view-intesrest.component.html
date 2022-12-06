@@ -1,118 +1,139 @@
-<div class="container-fluid justify-content-between">
-  <h3 class="text-align-center">Calculadora de pagamento:</h3>
-  <p></p>
-  <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1"
-      >Valor do produto (R$)</span
-    >
-    <input
-      type="text"
-      class="form-control"
-      placeholder="Valor da compra"
-      aria-label="totalValue"
-      aria-describedby="basic-addon1"
-      [(ngModel)]="dataToGetInterest.totalValue"
-      s
-    />
-  </div>
+<div class="container container-body containerInterestView">
+  <div class="row">
+    <div class="col-md"></div>
 
-  <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1"
-      >Valor de entrada (R$)
-    </span>
-    <input
-      type="text"
-      class="form-control"
-      step="0.01"
-      placeholder="Valor da entrada"
-      aria-label="downPaymentOn"
-      [(ngModel)]="dataToGetInterest.downPaymentOn"
-      aria-describedby="basic-addon1"
-    />
-  </div>
+    <div class="col-md">
+      <div class="container-fluid justify-content-between">
+        <h3 class="text-align-center">Calculadora de pagamento:</h3>
+        <p></p>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"
+            >Valor do produto (R$)</span
+          >
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Valor da compra"
+            aria-label="totalValue"
+            aria-describedby="basic-addon1"
+            [(ngModel)]="dataToGetInterest.totalValue"
+            s
+          />
+        </div>
 
-  <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">Numero de parcelas</span>
-    <input
-      type="number"
-      class="form-control"
-      placeholder="Numero de parcelas"
-      aria-label="installmentNumber"
-      [(ngModel)]="dataToGetInterest.installmentsNumber"
-      aria-describedby="basic-addon1"
-    />
-  </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"
+            >Valor de entrada (R$)
+          </span>
+          <input
+            type="text"
+            class="form-control"
+            step="0.01"
+            placeholder="Valor da entrada"
+            aria-label="downPaymentOn"
+            [(ngModel)]="dataToGetInterest.downPaymentOn"
+            aria-describedby="basic-addon1"
+          />
+        </div>
 
-  <button
-    class="btn btn-primary item-align-center container-fluid"
-    (click)="getPayValues()"
-  >
-    Calcular
-  </button>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"
+            >Numero de parcelas</span
+          >
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Numero de parcelas"
+            aria-label="installmentNumber"
+            [(ngModel)]="dataToGetInterest.installmentsNumber"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+
+        <button
+          class="btn btn-primary item-align-center container-fluid"
+          (click)="getPayValues()"
+        >
+          Calcular
+        </button>
+      </div>
+    </div>
+    <div class="col-md"></div>
+  </div>
 </div>
 
-<div class="container-fluid" id="payValues" *ngIf="hidePayValues">
-  <p>Pagamento a vista:</p>
-  <div class="container-fluid" id="priceOnDebit">
-    <ul class="list-group">
-      <li
-        class="list-group-item d-flex justify-content-between align-items-start"
-      >
-        <div class="ms-2 me-auto">
-          <div class="fw-bold">R$ {{ payValue.priceInDebit }}</div>
+<div class="container-fluid containerInterestView">
+  <div class="container container-body" id="payValues" *ngIf="hidePayValues">
+    <div class="row">
+      <div class="col-sm">
+        <p>Pagamento a vista:</p>
+        <div class="container-fluid" id="priceOnDebit">
+          <ul class="list-group">
+            <li
+              class="list-group-item d-flex justify-content-between align-items-start"
+            >
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">R$ {{ payValue.priceInDebit }}</div>
+              </div>
+              <span class="badge bg-primary rounded-pill"
+                >Cartao de Debito</span
+              >
+              <br />
+            </li>
+          </ul>
         </div>
-        <span class="badge bg-primary rounded-pill">Cartao de Debito</span>
-        <br />
-      </li>
-    </ul>
-  </div>
 
-  <div class="container-fluid" id="priceOnCash">
-    <ul class="list-group">
-      <li
-        class="list-group-item d-flex justify-content-between align-items-start"
-      >
-        <div class="ms-2 me-auto">
-          <div class="fw-bold">R$ {{ payValue.priceInCash }}</div>
+        <div class="container-fluid" id="priceOnCash">
+          <ul class="list-group">
+            <li
+              class="list-group-item d-flex justify-content-between align-items-start"
+            >
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">R$ {{ payValue.priceInCash }}</div>
+              </div>
+              <span class="badge bg-primary rounded-pill">Dinheiro</span>
+              <br />
+            </li>
+          </ul>
         </div>
-        <span class="badge bg-primary rounded-pill">Dinheiro</span>
-        <br />
-      </li>
-    </ul>
-  </div>
 
-  <div class="container-fluid" id="priceOnPix">
-    <ul class="list-group">
-      <li
-        class="list-group-item d-flex justify-content-between align-items-start"
-      >
-        <div class="ms-2 me-auto">
-          <div class="fw-bold">R$ {{ payValue.priceInPix }}</div>
+        <div class="container-fluid" id="priceOnPix">
+          <ul class="list-group">
+            <li
+              class="list-group-item d-flex justify-content-between align-items-start"
+            >
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">R$ {{ payValue.priceInPix }}</div>
+              </div>
+              <span class="badge bg-primary rounded-pill">PIX</span>
+              <br />
+            </li>
+          </ul>
         </div>
-        <span class="badge bg-primary rounded-pill">PIX</span>
-        <br />
-      </li>
-    </ul>
-  </div>
+      </div>
 
-  <p></p>
-
-  <div class="container-fluid" id="installmentPayment">
-    <p>Pagamento a prazo:</p>
-    <ul class="list-group">
-      <li
-        class="list-group-item d-flex justify-content-between align-items-start"
-        *ngFor="let installment of payValue.priceInCredit"
-      >
-        <div class="ms-2 me-auto">
-          <div class="fw-bold">R$ {{ installment.installmentsValue }}</div>
-          Valor total: R$ {{ installment.totalValue }}
+      <div class="col-sm">
+        <div class="container-fluid" id="installmentPayment">
+          <p>Pagamento a prazo:</p>
+          <ul class="list-group">
+            <li
+              class="list-group-item d-flex justify-content-between align-items-start"
+              *ngFor="let installment of payValue.priceInCredit"
+            >
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">
+                  R$ {{ installment.installmentsValue }}
+                </div>
+                Valor total: R$ {{ installment.totalValue }}
+              </div>
+              <span class="badge bg-primary rounded-pill"
+                >{{ installment.installmentNumber }}x</span
+              >
+              <br />
+            </li>
+          </ul>
         </div>
-        <span class="badge bg-primary rounded-pill"
-          >{{ installment.installmentNumber }}x</span
-        >
-        <br />
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
 </div>
