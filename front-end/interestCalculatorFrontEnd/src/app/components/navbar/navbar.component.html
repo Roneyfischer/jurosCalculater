@@ -42,8 +42,25 @@
         type="button"
         class="btn btn-success basicMargin"
         routerLink="login"
+        *ngIf="!userLoginStatus"
       >
         Entrar
+      </button>
+      <button
+        type="button"
+        class="btn btn-info basicMargin"
+        routerLink="login"
+        *ngIf="userLoginStatus"
+      >
+        Painel de controle
+      </button>
+      <button
+        type="button"
+        class="btn btn-danger basicMargin"
+        (click)="logout()"
+        *ngIf="userLoginStatus"
+      >
+        Sair
       </button>
     </div>
   </div>

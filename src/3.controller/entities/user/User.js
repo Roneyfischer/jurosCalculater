@@ -1,6 +1,7 @@
 import userService from "../../../2.service/busnessRoule/User/User.js";
 import setCookie from "../../../2.service/busnessRoule/User/token-cookie/token-cookie.js";
 import interestService from "../../../2.service/busnessRoule/interest/interest.js";
+import authorization from "../authorization/authorization.js";
 const userController = {
   userLogin: async (reqBody, res) => {
     const loginResult = await userService.userLoginService(reqBody, res);
@@ -26,6 +27,10 @@ const userController = {
 
   interestSetMonthRate: async (reqBody) => {
     interestService.rateSetMonth(reqBody);
+  },
+
+  tokenValidation: async (reqBody, res) => {
+    return authorization.tokenValidation(reqBody.token, res);
   },
 };
 

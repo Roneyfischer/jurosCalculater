@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import cookie from 'cookiejs';
 
 import { UserLoginData } from 'src/app/interfaces/user/user-login-data';
 import { LoginService } from 'src/app/service/user/login/login.service';
@@ -30,6 +31,7 @@ export class LoginComponent {
     const date = new Date();
     date.setTime(date.getTime() + 3 * 24 * 60 * 60 * 1000);
     document.cookie = `access_token=${data.token}; expires=${date}`;
+
     return this.route.navigate([`drashBoard`]);
   };
 
