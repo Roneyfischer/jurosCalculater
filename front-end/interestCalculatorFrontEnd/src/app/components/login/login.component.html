@@ -1,31 +1,39 @@
-<div
-  class="container-fluid justify-content-between block-login-register align-middle rounded mx-auto d-block"
->
-  <img
-    src="../../../assets/logos/your-logo.png"
-    alt="your-system"
-    class="mx-auto d-block logoImg"
-  />
-  <h3 class="text-align-center">Painel do Administrador</h3>
-  <input
-    class="input"
-    type="text"
-    class="form-control"
-    placeholder="username"
-    aria-label="username"
-    aria-describedby="username"
-    [(ngModel)]="userLoginData.username"
-    s
-  />
-  <input
-    type="password"
-    class="form-control"
-    aria-label="password"
-    aria-describedby="user password"
-    [(ngModel)]="userLoginData.password"
-    s
-  />
-  <button class="btn btn-primary container-fluid" (click)="userLogin()">
-    Entrar
-  </button>
+<div class="container">
+  <div class="row justify-content-start"></div>
+  <div class="row justify-content-center">
+    <div class="col-sm"></div>
+    <div
+      class="col-md justify-content-between block-login-register align-middle rounded mx-auto d-block"
+    >
+      <img
+        src="../../../assets/logos/your-logo.png"
+        alt="your-system"
+        class="mx-auto d-block logoImg"
+      />
+      <h3 class="text-align-center">Painel do Administrador</h3>
+      <input
+        class="input"
+        type="text"
+        class="form-control"
+        placeholder="username"
+        aria-label="username"
+        aria-describedby="username"
+        [(ngModel)]="userLoginData.username"
+        s
+      />
+      <input
+        type="password"
+        class="form-control"
+        aria-label="password"
+        aria-describedby="user password"
+        [(ngModel)]="userLoginData.password"
+        s
+      />
+      <button class="btn btn-primary container-fluid" (click)="userLogin()">
+        Entrar
+      </button>
+    </div>
+    <div class="col-sm"></div>
+  </div>
+  <div class="row justify-content-end"></div>
 </div>

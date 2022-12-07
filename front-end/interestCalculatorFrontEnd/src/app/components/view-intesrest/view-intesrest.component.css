@@ -1,3 +1,13 @@
 .page-body {
   padding-left: 100px;
 }
+.containerInterestView {
+  margin-bottom: 3rem;
+}
+
+.totalValue {
+  margin: 0;
+  padding: 0;
+  font-size: 0.8rem;
+  text-align: center;
+}

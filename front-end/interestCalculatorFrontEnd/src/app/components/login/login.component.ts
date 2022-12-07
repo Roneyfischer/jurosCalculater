@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+
 import { UserLoginData } from 'src/app/interfaces/user/user-login-data';
 import { LoginService } from 'src/app/service/user/login/login.service';
 
@@ -8,7 +10,7 @@ import { LoginService } from 'src/app/service/user/login/login.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  constructor(private loginService: LoginService) {}
+  constructor(private loginService: LoginService, private route: Router) {}
 
   userLoginData: UserLoginData = {
     type: '',
@@ -20,6 +22,15 @@ export class LoginComponent {
 
   subscribReturn = async (data: any) => {
     console.log(data);
+    if (!data.status) {
+      alert(`${data.message}`);
+      return this.route.navigate([`/login`]);
+    }
+
+    const date = new Date();
+    date.setTime(date.getTime() + 3 * 24 * 60 * 60 * 1000);
+    document.cookie = `access_token=${data.token}; expires=${date}`;
+    return this.route.navigate([`drashBoard`]);
   };
 
   userLogin() {

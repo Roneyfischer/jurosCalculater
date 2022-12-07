@@ -20,7 +20,7 @@ const setCookie = async (reqBody, res) => {
     })
     .status(200)
     .json({
-      statu: true,
+      status: true,
       message: `User has ben logged, and  jwTOken has ben send to frontEnd.`,
       token: token,
     });

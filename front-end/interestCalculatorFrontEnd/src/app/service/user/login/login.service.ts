@@ -14,6 +14,7 @@ export class LoginService {
     this.http
       .post(`http://127.0.0.1:3333/${URL}`, reqData)
       .subscribe((resData: any) => {
+        console.log(resData);
         return subscribReturn(resData);
       });
   }

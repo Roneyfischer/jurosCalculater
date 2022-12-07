@@ -65,8 +65,9 @@
 <div class="container-fluid containerInterestView">
   <div class="container container-body" id="payValues" *ngIf="hidePayValues">
     <div class="row">
-      <div class="col-sm">
-        <p>Pagamento a vista:</p>
+      <div class="col-md"></div>
+      <div class="col-lg">
+        <h5 class="text-center">Pagamento a vista:</h5>
         <div class="container-fluid" id="priceOnDebit">
           <ul class="list-group">
             <li
@@ -112,28 +113,32 @@
         </div>
       </div>
 
-      <div class="col-sm">
+      <div class="col-lg">
         <div class="container-fluid" id="installmentPayment">
-          <p>Pagamento a prazo:</p>
+          <h5 class="text-center">Pagamento a prazo:</h5>
           <ul class="list-group">
             <li
               class="list-group-item d-flex justify-content-between align-items-start"
               *ngFor="let installment of payValue.priceInCredit"
             >
-              <div class="ms-2 me-auto">
+              <div class="ms-2 me-auto container-fluid">
                 <div class="fw-bold">
+                  <span class="badge bg-primary rounded-pill"
+                    >{{ installment.installmentNumber }}x</span
+                  >
                   R$ {{ installment.installmentsValue }}
                 </div>
-                Valor total: R$ {{ installment.totalValue }}
+                <p class="totalValue">
+                  Valor total: R$ {{ installment.totalValue }}
+                </p>
               </div>
-              <span class="badge bg-primary rounded-pill"
-                >{{ installment.installmentNumber }}x</span
-              >
+
               <br />
             </li>
           </ul>
         </div>
       </div>
+      <div class="col-md"></div>
     </div>
   </div>
 </div>
