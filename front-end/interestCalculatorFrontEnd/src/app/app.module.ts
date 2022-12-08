@@ -25,7 +25,12 @@ import { UserComponent } from './components/user/user/user.component';
     UserComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
-  providers: [DrashBoardGuard, HttpClientModule],
+  providers: [
+    DrashBoardGuard,
+    HttpClientModule,
+    UserComponent,
+    TokenValidationComponent,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

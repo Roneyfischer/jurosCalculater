@@ -1,1 +1,102 @@
-<p>drash-board works!</p>
+<div class="container-fluid containerInterestView">
+  <div class="container container-body" id="payValues">
+    <div class="row" id="interestRateView">
+      <div class="col-3">
+        <h5 class="text-center">Pagamento a vista:</h5>
+        <div
+          class="container-fluid cursor-pointer"
+          id="priceOnDebit"
+          (click)="teste('debitRate')"
+        >
+          <ul class="list-group">
+            <li
+              class="list-group-item d-flex justify-content-between align-items-start"
+            >
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">{{ interestRate.debitRate }}%</div>
+              </div>
+              <span class="badge bg-primary rounded-pill"
+                >Cartao de Debito</span
+              >
+              <br />
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="container-fluid cursor-pointer"
+          id="priceOnCash"
+          (click)="teste('cashRate')"
+        >
+          <ul class="list-group">
+            <li
+              class="list-group-item d-flex justify-content-between align-items-start"
+            >
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">{{ interestRate.cashRate }}%</div>
+              </div>
+              <span class="badge bg-primary rounded-pill">Dinheiro</span>
+              <br />
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="container-fluid cursor-pointer"
+          id="priceOnPix"
+          (click)="teste('pixRate')"
+        >
+          <ul class="list-group">
+            <li
+              class="list-group-item d-flex justify-content-between align-items-start"
+            >
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">{{ interestRate.pixRate }}%</div>
+              </div>
+              <span class="badge bg-primary rounded-pill">PIX</span>
+              <br />
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-4">
+        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      </div>
+    </div>
+    <div class="row" id="inputs">
+      <div class="col-3">
+        <div class="container-fluid" id="installmentPayment">
+          <h5 class="text-center">Pagamento a prazo:</h5>
+          <ul class="list-group">
+            <li
+              class="list-group-item d-flex justify-content-between align-items-start cursor-pointer"
+              (click)="teste('transactionRate')"
+            >
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">
+                  {{ interestRate.creditRate.transactionRate }}%
+                </div>
+              </div>
+              <span class="badge bg-primary rounded-pill"
+                >Juros por transacao</span
+              >
+              <br />
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-start cursor-pointer"
+              (click)="teste('monthRate')"
+            >
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">
+                  {{ interestRate.creditRate.monthRate }}%
+                </div>
+              </div>
+              <span class="badge bg-primary rounded-pill">Juros mensais</span>
+              <br />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -14,6 +14,7 @@ export class UserComponent {
 
   logout() {
     cookie.remove('access_token');
-    open('');
+
+    location.reload();
   }
 }

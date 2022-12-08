@@ -27,7 +27,7 @@ export class DrashBoardGuard implements CanActivate {
     if (token) {
       return true;
     }
-    alert('Por favor, entre em sua conta para acessar este link');
+
     this.router.navigate(['login']);
     return false;
   }
